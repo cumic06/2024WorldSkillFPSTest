@@ -16,6 +16,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (weapon.Length <= 0) return;
+
         if (Input.GetMouseButton(0))
         {
             Shoot();
@@ -27,6 +29,8 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
+        if (weapon.Length <= 0) return;
+
         for (int i = 0; i < weaponKeys.Length; i++)
         {
             if (Input.GetKeyDown(weaponKeys[i]))

@@ -7,19 +7,30 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private Transform followTarget;
     [SerializeField] private float cameraMoveSpeed;
     [SerializeField] private float cameraRotSpeed;
-    [SerializeField] private Vector3 offSet;
     [SerializeField] private float clampYLow;
     [SerializeField] private float clampYHigh;
+
+    private bool isCanRot;
+
+    private void Start()
+    {
+        GameStateEventBus.Subscribe(GameState.Pause, CanRotFalse);
+        GameStateEventBus.Subscribe(GameState.Play, CanRotTrue);
+    }
+
+    private void CanRotTrue()
+    {
+        isCanRot = true;
+    }
+
+    private void CanRotFalse()
+    {
+        isCanRot = false;
+    }
 
     private void FixedUpdate()
     {
         CameraRotation();
-        FollowTarget();
-    }
-
-    private void FollowTarget()
-    {
-        transform.position = followTarget.position + offSet;
     }
 
     private void CameraRotation()

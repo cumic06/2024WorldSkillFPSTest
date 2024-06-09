@@ -15,6 +15,12 @@ public class Player : Unit
         playerAttack = GetComponent<PlayerAttack>();
     }
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+
     private void FixedUpdate()
     {
         playerMove.Move();
