@@ -39,10 +39,12 @@ public class PlayerMove : MonoBehaviour
         transform.Translate(player.GetUnitStat().currentMoveSpeed * Time.deltaTime * moveVec);
     }
 
+    float rotY = 0;
     public void Rotation()
     {
         if (!isCanMove) return;
-        transform.rotation = Quaternion.Euler(transform.rotation.x, InputManager.GetInputMouse().x * rotSpeed * Time.deltaTime, transform.rotation.z);
+        rotY += InputManager.GetInputMouse().x * rotSpeed;
+        transform.eulerAngles = new(0, rotY);
     }
 
     private void UseStamina(int value)

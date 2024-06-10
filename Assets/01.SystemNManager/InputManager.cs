@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
 
     public static Vector3 GetInputMouse()
     {
-        return Input.mousePosition;
+        Vector3 mouseVec = new(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        return mouseVec;
     }
 }

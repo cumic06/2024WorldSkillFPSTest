@@ -17,7 +17,8 @@ public class Player : Unit
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
 
