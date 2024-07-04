@@ -567,10 +567,10 @@ GameObject:
   - component: {fileID: 6145123557680781017}
   - component: {fileID: 1767137765913243706}
   - component: {fileID: 2101288711931940817}
+  - component: {fileID: 8719456451922326969}
   - component: {fileID: 7242079861024787337}
   - component: {fileID: 3986011176545392237}
   - component: {fileID: 4083997712604550603}
-  - component: {fileID: 8719456451922326969}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -629,8 +629,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3e30306078f8a48bf45e8c74131f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 5
+  rotSpeed: 3
   stamina: 0
+--- !u!114 &8719456451922326969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659985673260994131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbdaeac2fc892794795b65895945278a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: []
+  currentWeapon: {fileID: 0}
 --- !u!54 &7242079861024787337
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -702,20 +716,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8719456451922326969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659985673260994131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbdaeac2fc892794795b65895945278a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: []
-  currentWeapon: {fileID: 0}
 --- !u!1 &1923074577622848082
 GameObject:
   m_ObjectHideFlags: 0
