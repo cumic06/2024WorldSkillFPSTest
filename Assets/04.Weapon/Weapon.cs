@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum MagazinType
 {
+    Pistol,
     Assult,
-    Sniper,
-
+    Sniper
 }
 
 public class Weapon : MonoBehaviour
@@ -17,16 +17,24 @@ public class Weapon : MonoBehaviour
 
     public void SetMagazine()
     {
+        switch (magazinType)
+        {
+            case MagazinType.Pistol:
 
-    }
-
-    public void GetCurrentBullet()
-    {
-
+                break;
+            case MagazinType.Assult:
+                break;
+            case MagazinType.Sniper:
+                break;
+        }
     }
 
     public virtual void SpawnBullet()
     {
 
+    }
+    public int GetCurrentBullet()
+    {
+        return currentBullet;
     }
 }

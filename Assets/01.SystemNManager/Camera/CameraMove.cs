@@ -8,7 +8,7 @@ public class CameraMove : MonoBehaviour
     public float clampYLow;
     public float clampYHigh;
 
-    private bool isCanRot;
+    public bool isCanRot;
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class CameraMove : MonoBehaviour
 
     private void CameraRotation()
     {
-        float rotHorizontal = -InputManager.GetInputMouse().y * cameraRotSpeed * Time.deltaTime;
+        float rotHorizontal = -InputManager.GetInputMouse().y * cameraRotSpeed;
 
         float camreaRotX = Mathf.Clamp(rotHorizontal, clampYLow, clampYHigh);
 
