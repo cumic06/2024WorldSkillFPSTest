@@ -9,6 +9,7 @@ public class CameraMove : MonoBehaviour
     public float clampYHigh;
 
     public bool isCanRot;
+    private float rotX = 0;
 
     private void Start()
     {
@@ -36,7 +37,9 @@ public class CameraMove : MonoBehaviour
     {
         float rotHorizontal = -InputManager.GetInputMouse().y * cameraRotSpeed;
 
-        float camreaRotX = Mathf.Clamp(rotHorizontal, clampYLow, clampYHigh);
+        rotX += rotHorizontal;
+
+        float camreaRotX = Mathf.Clamp(rotX, clampYLow, clampYHigh);
 
         transform.eulerAngles = new Vector2(camreaRotX, transform.eulerAngles.y);
     }

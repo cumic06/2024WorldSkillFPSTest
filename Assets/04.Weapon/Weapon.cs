@@ -6,7 +6,8 @@ public enum MagazinType
 {
     Pistol,
     Assult,
-    Sniper
+    Sniper,
+    ShotGun
 }
 
 public class Weapon : MonoBehaviour
