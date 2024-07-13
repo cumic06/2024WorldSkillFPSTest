@@ -5,7 +5,7 @@ using UnityEngine;
 public class WayPoint : MonoBehaviour
 {
     public float width = 1.0f;
-    public bool IsExitNextWayPoint = true;
+    public bool IsExistNextWayPoint = true;
 
     public Vector3 GetRandomPos()
     {
