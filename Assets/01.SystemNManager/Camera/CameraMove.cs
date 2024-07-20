@@ -13,6 +13,9 @@ public class CameraMove : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         GameStateEventBus.Subscribe(GameState.Pause, CanRotFalse);
         GameStateEventBus.Subscribe(GameState.Play, CanRotTrue);
     }
