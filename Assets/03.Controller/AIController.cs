@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class AIController : Controller
 {
-    protected void EnemyDetect()
+    protected override void FixedUpdate()
     {
 
     }
 
-    protected void CheckAttackRange()
+    protected bool CheckAttackRange()
     {
-
+        Collider[] checkAttackRange = Physics.OverlapSphere(transform.position, currentWeapon.shootRange, enemyLayerMask);
+        return checkAttackRange.Length > 0;
     }
 
-    protected void CheckObstacle()
+    protected bool CheckObstacle()
+    {
+        return false;
+    }
+
+    protected void FollowEnemy()
     {
 
     }
