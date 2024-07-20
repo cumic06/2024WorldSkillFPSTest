@@ -7,6 +7,8 @@ public class PlayerController : Controller
     private PlayerHUDController playerHUDController;
     private PlayerMagazineInventory playerMagazineInventory;
     public float rotSpeed;
+    public float stamina;
+    public float maxStamina = 100;
 
     protected override void Awake()
     {
@@ -20,6 +22,21 @@ public class PlayerController : Controller
         base.FixedUpdate();
         MoveMent();
         Rotate();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
+        if (Input.GetKeyDown(KeyCode.Space) /*&& stamina >*/)
+        {
+            Jump();
+        }
+
+        Attack();
     }
 
     private void MoveMent()
@@ -37,18 +54,22 @@ public class PlayerController : Controller
         transform.eulerAngles = new Vector3(0, rotY);
     }
 
+    private void Jump()
+    {
+
+    }
+
     protected override void Attack()
     {
         base.Attack();
+        currentWeapon.currentAttackDelay += Time.deltaTime;
+
         if (Input.GetMouseButton(0))
         {
-            if (currentWeapon.GetCurrentBullet() > 0)
+            if (IsCanAttack())
             {
-                currentWeapon.SpawnBullet();
-            }
-            else
-            {
-                Reload();
+                currentWeapon.Shoot();
+                currentWeapon.currentAttackDelay = 0;
             }
         }
     }

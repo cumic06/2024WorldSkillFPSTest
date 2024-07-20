@@ -2,15 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public interface IDamageable
+{
+    public void TakeDamage(int damageValue);
+}
+
+public class Controller : MonoBehaviour, IDamageable
 {
     public Health health;
     public Weapon currentWeapon;
     public float moveSpeed;
+    public LayerMask enemyLayerMask;
 
     protected virtual void Awake()
     {
 
+    }
+
+    protected virtual void Start()
+    {
+        health.currentHp = health.maxHp;
     }
 
     protected virtual void FixedUpdate()
@@ -28,8 +39,19 @@ public class Controller : MonoBehaviour
 
     }
 
+    protected bool IsCanAttack()
+    {
+        return currentWeapon.currentAttackDelay >= currentWeapon.attackDelay;
+    }
+
     protected virtual void Reload()
     {
-        currentWeapon.SetMagazine();
+        currentWeapon.Reload();
+        Debug.Log("Reload");
+    }
+
+    public void TakeDamage(int damageValue)
+    {
+
     }
 }
