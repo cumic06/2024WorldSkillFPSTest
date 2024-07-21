@@ -3883,6 +3883,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   rotSpeed: 5
+  stamina: 0
+  maxStamina: 100
 --- !u!114 &1669875125
 MonoBehaviour:
   m_ObjectHideFlags: 0
