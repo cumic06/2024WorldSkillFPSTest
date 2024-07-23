@@ -5,11 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class WeaponMagazineData
 {
-    public BulletType magazineType;
-    public MagazineData magazineData;
+    public WeaponType magazineType;
+    public MagazineItemData magazineData;
     public GameObject bulletPrefab;
 
-    public BulletType GetMagazineType()
+    public WeaponType GetMagazineType()
     {
         return magazineType;
     }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2233701281334233486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 902711907768118987}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5795018411017339496}
   - component: {fileID: 5492806417456748043}
   - component: {fileID: 1474542211843484272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: small_bullet_casing (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 2260358979691081968}
   - component: {fileID: 1707506998640013717}
   - component: {fileID: 7320656670431416391}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: small_bullet_casing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3489734181432394207}
   - component: {fileID: 858185450560058115}
   - component: {fileID: 1446162096355211367}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: small_bullet_casing (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 3071704217488257528}
   - component: {fileID: 390414582927440296}
   - component: {fileID: 1125136969166455078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: small_bullet_casing (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 987962231084390475}
   - component: {fileID: 2093876729240209748}
   - component: {fileID: 4275427489871368775}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: small_bullet_casing (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,13 +494,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8113094212419985431, guid: 9651af5db035828429f30f72168280ab, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552649450079307198, guid: 9651af5db035828429f30f72168280ab, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 9651af5db035828429f30f72168280ab, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: -3731807405992669640, guid: 818b5fb0a9174cb4bb91aac90b7b62c6, type: 3}
+    - target: {fileID: -2962097000093531920, guid: 9651af5db035828429f30f72168280ab, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9651af5db035828429f30f72168280ab, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Shotgun_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9651af5db035828429f30f72168280ab, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9651af5db035828429f30f72168280ab, type: 3}
       propertyPath: m_IsActive
@@ -558,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootRange: 5
-  bulletType: 3
+  weaponType: 3
   currentBullet: 100
   attackDelay: 2
   currentAttackDelay: 0

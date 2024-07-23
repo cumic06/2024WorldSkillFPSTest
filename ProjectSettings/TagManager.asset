@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Weapon
+  - MiniMap
+  - Item
+  - Army
   - 
   - 
   - 

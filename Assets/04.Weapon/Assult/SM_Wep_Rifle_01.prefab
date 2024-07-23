@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5566143055095022224}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: -3731807405992669640, guid: 818b5fb0a9174cb4bb91aac90b7b62c6, type: 3}
+    - target: {fileID: -3232948210864600238, guid: 8589fba7188d59b4ea6e12f7ee9ddbfb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 740518231520854857, guid: 8589fba7188d59b4ea6e12f7ee9ddbfb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -92,8 +96,16 @@ PrefabInstance:
       value: SM_Wep_Rifle_01
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8589fba7188d59b4ea6e12f7ee9ddbfb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8589fba7188d59b4ea6e12f7ee9ddbfb, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767010892968108469, guid: 8589fba7188d59b4ea6e12f7ee9ddbfb, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8560017528936168743, guid: 8589fba7188d59b4ea6e12f7ee9ddbfb, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -131,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootRange: 15
-  bulletType: 1
-  currentBullet: 10
+  weaponType: 1
+  currentBullet: 0
   attackDelay: 0.5
   currentAttackDelay: 0
   bulletPos: {fileID: 5566143055095022224}

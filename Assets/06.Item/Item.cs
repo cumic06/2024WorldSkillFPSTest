@@ -2,23 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITakeable
+public class Item : MonoBehaviour, IInterectable
 {
-    public void TakeItem();
-}
-
-public class Item : MonoBehaviour, ITakeable
-{
-    private void OnTriggerEnter(Collider other)
+    public void Intererct()
     {
-        if (other.TryGetComponent(out PlayerController player))
-        {
-            TakeItem();
-        }
-    }
 
-    public void TakeItem()
-    {
-        
     }
 }

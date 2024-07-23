@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BulletType
+public enum WeaponType
 {
     Pistol,
     Assult,
@@ -13,12 +13,17 @@ public enum BulletType
 public class Weapon : MonoBehaviour
 {
     public float shootRange;
-    public BulletType bulletType;
+    public WeaponType weaponType;
     public int currentBullet;
     public float attackDelay;
     public float currentAttackDelay;
     public Transform bulletPos;
     public WeaponMagazineData weaponMagazineData;
+
+    private void Start()
+    {
+        currentBullet = weaponMagazineData.GetMaxBulletCount();
+    }
 
     public void Shoot()
     {
@@ -27,10 +32,9 @@ public class Weapon : MonoBehaviour
 
     public virtual void SpawnBullet()
     {
-        Debug.Log("SpawnBullet");
         GameObject spawnBullet = Instantiate(weaponMagazineData.GetBulletPrefab(), bulletPos.position, bulletPos.rotation);
 
-        if (bulletType == BulletType.ShotGun)
+        if (weaponType == WeaponType.ShotGun)
         {
             spawnBullet.transform.rotation = bulletPos.rotation * Quaternion.Euler(Random.insideUnitCircle * 15);
         }
@@ -39,9 +43,9 @@ public class Weapon : MonoBehaviour
         bullet.DestroyRange = shootRange;
     }
 
-    public BulletType GetMagazineType()
+    public WeaponType GetWeaponType()
     {
-        return bulletType;
+        return weaponType;
     }
 
     public int GetMaxBullet()
@@ -56,14 +60,11 @@ public class Weapon : MonoBehaviour
 
     public void DisCountBullet()
     {
-        if (currentBullet <= 0)
-        {
-            Reload();
-            return;
-        }
+        if (IsBulletZero()) return;
+
         currentBullet--;
 
-        if (bulletType == BulletType.ShotGun)
+        if (weaponType == WeaponType.ShotGun)
         {
             for (int i = 0; i < 15; i++)
             {
@@ -74,6 +75,11 @@ public class Weapon : MonoBehaviour
         {
             SpawnBullet();
         }
+    }
+
+    public bool IsBulletZero()
+    {
+        return currentBullet <= 0;
     }
 
     public void Reload()
