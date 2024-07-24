@@ -12,10 +12,8 @@ public class PlayerHUDController : MonoBehaviour
     public Text bulletCountText;
     public Text magazineCountText;
 
-    public void UpdateHUD()
-    {
-
-    }
+    public GameObject interectionObject;
+    public Text interectionNameText;
 
     public void UpdateHpHUD(float max, float current)
     {
@@ -36,5 +34,16 @@ public class PlayerHUDController : MonoBehaviour
     {
         bulletCountText.text = $"{bulletCount}/{bulletMaxCount}";
         magazineCountText.text = $"{magazineCount}/{magazineMaxCount}";
+    }
+
+    public void InterectionHUD(bool active, string name = default, Vector3 pos = default)
+    {
+        if (active)
+        {
+            RectTransform rectTrans = interectionObject.transform as RectTransform;
+            rectTrans.position = Camera.main.WorldToScreenPoint(pos);
+            interectionNameText.text = name;
+        }
+        interectionObject.SetActive(active);
     }
 }

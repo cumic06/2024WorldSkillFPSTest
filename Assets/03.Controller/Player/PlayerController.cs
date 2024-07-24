@@ -111,7 +111,6 @@ public class PlayerController : Controller
         {
             currentMoveSpeed = moveSpeed;
             gunPos.rotation = Quaternion.Euler(Camera.main.transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
-            CameraMoveMent.Instance.SprintCamera(60);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && currentStamina > 30)
@@ -130,17 +129,19 @@ public class PlayerController : Controller
 
     private void Interect()
     {
-        Ray ray = Camera.main.ScreenPointToRay(transform.position);
-        RaycastHit[] rayHit = Physics.RaycastAll(ray, Mathf.Infinity, 1 << 10 | 1 << 11);
-        if (rayHit.Length > 0)
+        Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 3, 1 << 10 | 1 << 11))
         {
-            foreach (var item in rayHit)
+            Debug.Log("Detect");
+            if (hitInfo.collider.TryGetComponent(out InterectionObject interactionObject))
             {
-                if (item.transform.TryGetComponent(out InterectionObject interactionObject))
-                {
-
-                }
+                playerHUDController.InterectionHUD(true, interactionObject.infoName, interactionObject.transform.position + new Vector3(0, 0.5f, 0));
             }
+        }
+        else
+        {
+            Debug.Log("NotDetect");
+            playerHUDController.InterectionHUD(false);
         }
     }
 

@@ -13,6 +13,8 @@ public class CameraMoveMent : Sigleton<CameraMoveMent>
 
     public Transform playerPos;
 
+    private float startfield = 60;
+
     private void Start()
     {
         Cursor.visible = false;
@@ -65,6 +67,10 @@ public class CameraMoveMent : Sigleton<CameraMoveMent>
 
     public void SprintCamera(float value)
     {
-        Camera.main.fieldOfView = value;
+        while (Camera.main.fieldOfView >= value)
+        {
+            Camera.main.fieldOfView = startfield + Time.deltaTime;
+        }
+        Camera.main.fieldOfView = startfield;
     }
 }

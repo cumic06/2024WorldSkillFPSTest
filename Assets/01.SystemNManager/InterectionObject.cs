@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public interface IInterectable
+public class InterectionObject : MonoBehaviour
 {
-    public void Intererct();
-}
+    public string infoName;
 
-public class InterectionObject : MonoBehaviour, IInterectable
-{
-    public void Intererct()
+    public string GetName()
     {
-
+        return infoName;
     }
 }
