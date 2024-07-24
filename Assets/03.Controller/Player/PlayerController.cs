@@ -101,6 +101,12 @@ public class PlayerController : Controller
             RemoveStamina(10);
         }
 
+        currentWeapon.currentAttackDelay += Time.deltaTime;
+        if (Input.GetMouseButton(0))
+        {
+            Attack();
+        }
+
         if (Input.GetKey(KeyCode.LeftShift) && currentStamina > 5)
         {
             isUseStamina = true;
@@ -111,6 +117,8 @@ public class PlayerController : Controller
         {
             currentMoveSpeed = moveSpeed;
             gunPos.rotation = Quaternion.Euler(Camera.main.transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+            CameraMoveMent.Instance.SprintCamera(60);
+            UICameraMoveMent.Instance.SprintCamera(60);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && currentStamina > 30)
@@ -120,11 +128,6 @@ public class PlayerController : Controller
             RemoveStamina(30);
         }
 
-        currentWeapon.currentAttackDelay += Time.deltaTime;
-        if (Input.GetMouseButton(0))
-        {
-            Attack();
-        }
     }
 
     private void Interect()
@@ -132,7 +135,6 @@ public class PlayerController : Controller
         Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 3, 1 << 10 | 1 << 11))
         {
-            Debug.Log("Detect");
             if (hitInfo.collider.TryGetComponent(out InterectionObject interactionObject))
             {
                 playerHUDController.InterectionHUD(true, interactionObject.infoName, interactionObject.transform.position + new Vector3(0, 0.5f, 0));
@@ -140,7 +142,6 @@ public class PlayerController : Controller
         }
         else
         {
-            Debug.Log("NotDetect");
             playerHUDController.InterectionHUD(false);
         }
     }
@@ -171,7 +172,8 @@ public class PlayerController : Controller
     private void Sprint()
     {
         currentMoveSpeed = sprintSpeed;
-        CameraMoveMent.Instance.SprintCamera(70);
+        CameraMoveMent.Instance.SprintCamera(80);
+        UICameraMoveMent.Instance.SprintCamera(50);
         gunPos.rotation = Quaternion.Euler(-65, transform.eulerAngles.y, transform.eulerAngles.z);
     }
 
@@ -184,7 +186,7 @@ public class PlayerController : Controller
     {
         Vector3 moveVec = transform.forward * slidePower;
 
-        rigid.AddForce(moveVec, ForceMode.Impulse);
+        rigid.AddForce(moveVec + Vector3.down, ForceMode.Impulse);
 
         CameraMoveMent.Instance.SlideCamera();
     }

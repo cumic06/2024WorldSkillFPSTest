@@ -13,7 +13,9 @@ public class CameraMoveMent : Sigleton<CameraMoveMent>
 
     public Transform playerPos;
 
-    private float startfield = 60;
+    public float startfield = 60;
+
+    private Coroutine sprintCor;
 
     private void Start()
     {
@@ -67,10 +69,23 @@ public class CameraMoveMent : Sigleton<CameraMoveMent>
 
     public void SprintCamera(float value)
     {
-        while (Camera.main.fieldOfView >= value)
+        if (sprintCor != null)
         {
-            Camera.main.fieldOfView = startfield + Time.deltaTime;
+            StopCoroutine(sprintCor);
         }
-        Camera.main.fieldOfView = startfield;
+        sprintCor = StartCoroutine(FieldOfViewCamera(value));
+
+        IEnumerator FieldOfViewCamera(float value)
+        {
+            float t = 0;
+
+            while (t < 1)
+            {
+                t += Time.deltaTime;
+                Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, value, t * 3);
+                yield return null;
+            }
+            Camera.main.fieldOfView = value;
+        }
     }
 }
